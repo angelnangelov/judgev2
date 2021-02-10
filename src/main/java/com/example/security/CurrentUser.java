@@ -1,0 +1,52 @@
+package com.example.security;
+
+import com.example.models.entities.enums.RoleEnum;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
+
+@Component
+@SessionScope
+public class CurrentUser {
+    private Long id;
+    private String username;
+    private RoleEnum role;
+
+    public CurrentUser() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public CurrentUser setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public CurrentUser setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public RoleEnum getRole() {
+        return role;
+    }
+
+    public CurrentUser setRole(RoleEnum role) {
+        this.role = role;
+        return this;
+    }
+
+    public boolean isAnonymous(){
+        return this.username == null;
+    }
+
+
+    public boolean isAdmin() {
+        return this.role== RoleEnum.ADMIN;
+    }
+}

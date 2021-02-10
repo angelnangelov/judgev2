@@ -30,8 +30,7 @@ public class Exercise extends BaseEntity{
     }
 
     @Column
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    @PastOrPresent(message = "THe date cannot be in the future")
+
     public LocalDateTime getStartedOn() {
         return startedOn;
     }
@@ -40,8 +39,6 @@ public class Exercise extends BaseEntity{
         this.startedOn = startedOn;
     }
     @Column
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
-    @PastOrPresent(message = "THe date cannot be in the past")
     public LocalDateTime getDueDate() {
         return dueDate;
     }
